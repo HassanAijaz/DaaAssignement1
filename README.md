@@ -1,5 +1,10 @@
 # Daa Assignement 1
 
+## Group Member
+### Hassan Aijaz (61905)
+### Ali Afaq (8625)
+
+
 # 1) Brute force algorithm
 
 # Basic idea:
