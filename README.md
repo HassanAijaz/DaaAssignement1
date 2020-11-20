@@ -47,15 +47,13 @@ The algorithm presented cannot be turned immediately in a structured program. Bu
 # Details
 One important detail of the backtracking algorithm is the function that saves the attacked positions (marks the invalid locations for the rest of the queens). This is the part of the algorithm that mostly determines its speed and efficiency. You can see the major difference of the two methods mentioned in the algorithm results - speed section.
 
-<li>
-
-  One novice approach is to mark queens positions on a 2 dimentional matrix (array in programming). Zero should represent no threat (valid spot) whereas every other number of that matrix means invalid location. When the algorithm must place a queen the diagonals, rows / columns and lines it threatens should take the number of the line of that queen (unless they already are not zero because another queen also threatens them). When the algorithm must remove a queen of the line k all the numbers of the matrix that are equal to k should become zero (numbers equal to k are those that are threatened just by the k queen so when this queen is removed they should become zero (no threat)). You can download this version of the algorithm here.
+<li>One novice approach is to mark queens positions on a 2 dimentional matrix (array in programming). Zero should represent no threat (valid spot) whereas every other number of that matrix means invalid location. When the algorithm must place a queen the diagonals, rows / columns and lines it threatens should take the number of the line of that queen (unless they already are not zero because another queen also threatens them). When the algorithm must remove a queen of the line k all the numbers of the matrix that are equal to k should become zero (numbers equal to k are those that are threatened just by the k queen so when this queen is removed they should become zero (no threat)). You can download this version of the algorithm here.
 </li>
-<li>
-  Another method is to save just the row / column and the diagonals that each queen occupies. The rows  / columns can be saved on a boolean one dimentional array / matrix with true meaning occupied row / column and false meaning free row / column. The diagonals can be also saved on two boolean one dimentional array / matrix and accessed with x - y and x + y numbers (where x is the number of the row / column of the queen and y is the number of the line). The upper left queen has x = 1 and y = 1 and the lower right queen has x = N and y = N for a table size of N). The diagonals accesed with x - y are those with positive slope whereas x + y accessed the negative slope diagonals. The second method along with other minor optimizations yields a 20x times speed up over the first (method). You can download this version of the algorithm here.
-  </li>
-<li>
-  The last and probably the best way of marking queens positions is using bitfields which will not be expained in this site. However the speed penalty of using the second method over the third is less than the penalty of using the first over the second method.
+
+<li>Another method is to save just the row / column and the diagonals that each queen occupies. The rows  / columns can be saved on a boolean one dimentional array / matrix with true meaning occupied row / column and false meaning free row / column. The diagonals can be also saved on two boolean one dimentional array / matrix and accessed with x - y and x + y numbers (where x is the number of the row / column of the queen and y is the number of the line). The upper left queen has x = 1 and y = 1 and the lower right queen has x = N and y = N for a table size of N). The diagonals accesed with x - y are those with positive slope whereas x + y accessed the negative slope diagonals. The second method along with other minor optimizations yields a 20x times speed up over the first (method). You can download this version of the algorithm here.
+</li>
+
+<li>The last and probably the best way of marking queens positions is using bitfields which will not be expained in this site. However the speed penalty of using the second method over the third is less than the penalty of using the first over the second method.
 </li>
   Also the backtracking algorithm time complexity is exponential. 
   
