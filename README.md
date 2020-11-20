@@ -1,6 +1,6 @@
 # Daa Assignement 1
 
-# Brute force algorithm
+# 1) Brute force algorithm
 
 # Basic idea:
  
@@ -20,7 +20,7 @@ But after "forcing" the algorithm to place only one queen on each row and one on
  
 I will not present an actual brute force algorithm here because it is not practical (has exremely low speed due to the enormous amount of resources-calculations required).
 
-# Backtracking algorithm
+# 2) Backtracking algorithm
 
 # Basic idea
 An N Queens backtracking algorithm is much more efficient by any brute force approach. The idea is to place one queen on one edge and then continue by placing the next queen on the first valid position (in the next row / column) and so on. When no more queens can be placed the algorithm has either found a solution (if all queens are placed) or it needs to remove the processed queen and move the previous one to the next valid position. When a queen has been placed on the last valid position in a row / column and needs to be replaced it must be removed and the previous one must be moved to the next valid position.
