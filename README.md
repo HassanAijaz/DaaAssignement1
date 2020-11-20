@@ -2,7 +2,7 @@
 
 # Brute force algorithm
 
-Basic idea:
+# Basic idea:
  
 The basic idea of the brute force algorithm is to place the queens on all possible positions and check each time if the queens cannot capture each other. If not then it has found a solution. Because of the vast amount of possible positions (NN for a table of size N while each row has 1 queen), this algorithm is not practical even for small table sizes (like N=12).
  
@@ -14,7 +14,7 @@ Probably none. The brute force algorithm is only mentined to point out the super
  
  
  
-# Other thoughts:
+# Our thoughts:
  
 But after "forcing" the algorithm to place only one queen on each row and one on each column the number of posible valid positions decreases to N! (N!=1*2*3....*(N-1)*N). Using this algorithm we can found a solution for larger table sizes compared to the previous method (like N=17).
  
@@ -48,21 +48,19 @@ The algorithm presented cannot be turned immediately in a structured program. Bu
 One important detail of the backtracking algorithm is the function that saves the attacked positions (marks the invalid locations for the rest of the queens). This is the part of the algorithm that mostly determines its speed and efficiency. You can see the major difference of the two methods mentioned in the algorithm results - speed section.
 
 <li>
-<ol>
+
   One novice approach is to mark queens positions on a 2 dimentional matrix (array in programming). Zero should represent no threat (valid spot) whereas every other number of that matrix means invalid location. When the algorithm must place a queen the diagonals, rows / columns and lines it threatens should take the number of the line of that queen (unless they already are not zero because another queen also threatens them). When the algorithm must remove a queen of the line k all the numbers of the matrix that are equal to k should become zero (numbers equal to k are those that are threatened just by the k queen so when this queen is removed they should become zero (no threat)). You can download this version of the algorithm here.
-  <ol>
-<ol>
-  Another method is to save just the row / column and the diagonals that each queen occupies. The rows  / columns can be saved on a boolean one dimentional array / matrix with true meaning occupied row / column and false meaning free row / column. The diagonals can be also saved on two boolean one dimentional array / matrix and accessed with x - y and x + y numbers (where x is the number of the row / column of the queen and y is the number of the line). The upper left queen has x = 1 and y = 1 and the lower right queen has x = N and y = N for a table size of N). The diagonals accesed with x - y are those with positive slope whereas x + y accessed the negative slope diagonals. The second method along with other minor optimizations yields a 20x times speed up over the first (method). You can download this version of the algorithm here.
-  <ol>
-<ol>
-  The last and probably the best way of marking queens positions is using bitfields which will not be expained in this site. However the speed penalty of using the second method over the third is less than the penalty of using the first over the second method.
-  <ol>
-   
+</li>
 <li>
+  Another method is to save just the row / column and the diagonals that each queen occupies. The rows  / columns can be saved on a boolean one dimentional array / matrix with true meaning occupied row / column and false meaning free row / column. The diagonals can be also saved on two boolean one dimentional array / matrix and accessed with x - y and x + y numbers (where x is the number of the row / column of the queen and y is the number of the line). The upper left queen has x = 1 and y = 1 and the lower right queen has x = N and y = N for a table size of N). The diagonals accesed with x - y are those with positive slope whereas x + y accessed the negative slope diagonals. The second method along with other minor optimizations yields a 20x times speed up over the first (method). You can download this version of the algorithm here.
+  </li>
+<li>
+  The last and probably the best way of marking queens positions is using bitfields which will not be expained in this site. However the speed penalty of using the second method over the third is less than the penalty of using the first over the second method.
+</li>
   Also the backtracking algorithm time complexity is exponential. 
   
-  # Advantages over other methods:
+# Advantages over other methods:
 The major advantage of the backtracking algorithm is the abillity to find and count all the possible solutions rather than just one while offering decent speed. In fact this is the reason it is so widely used. Also one can easily produce a parallel version of the backtracking algorithm increasing speed several times just by starting multiple threads with different starting positions of the first queens.
 
-# Other thoughts:
+# Our thoughts:
 The backtracking algorithm can be further optimised by using bitfields. You can study Jeff Somers's solution to the N Queens problem for further details. Also the backtracking algorithm can be easilly implemented on a GPU or a Multicore CPU. However it cannot find any solutions in a logical amount of time (some days) for numbers greater to 60 - 100 due to the exponential increase of the time needed as N (table size) grows.
